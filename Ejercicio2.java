@@ -16,9 +16,11 @@ class Persona{
         return persona;
     }
     
-    // ICM: Persona -> real
-    // calcula el indice de masa corporal de una persona
-    // ejemplo: ICM(Persona.crearPersona("persona1", 20, 170, 74)) debe producir 25.605536
+    // ICM: () -> real
+    // calcula el indice de masa corporal de una persona a partir del peso y estatura
+    // ejemplo: 
+    // Persona persona = Persona.crearPersona("Juan Perez", 20, 170, 74);
+    // persona.ICM() debe producir 25.605536
     public double ICM() {
         double estaturaMetros = this.estatura/100.0;
         return this.peso/Math.pow(estaturaMetros, 2);
@@ -30,8 +32,8 @@ public class Ejercicio2{
     // Test para ICM
     static public void ICMTest(){
         Persona persona1 = Persona.crearPersona("persona1", 20, 170, 74);
-        Persona persona2 = Persona.crearPersona("persona1", 20, 180, 90);
-        Persona persona3 = Persona.crearPersona("persona1", 20, 155, 50);
+        Persona persona2 = Persona.crearPersona("persona2", 20, 180, 90);
+        Persona persona3 = Persona.crearPersona("persona3", 20, 155, 50);
 
         assert persona1.ICM() == 74/Math.pow(1.70, 2);
         assert persona2.ICM() == 90/Math.pow(1.80, 2);
