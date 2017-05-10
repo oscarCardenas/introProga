@@ -3,69 +3,69 @@ class Hogar{
     public int miembros;
     public String[] nombres = new String[15];
 
-    //	creaHogar: String int String[] -> Hogar 
-	//	Recibe un string con el nombre del jefe, un entero con la cantidad de miembros y un arreglo
-    //	de String con los nombres de los miembros
-    //	Efecto: asigna los valores del arreglo nombre al arreglo propio de la clase
     static public Hogar creaHogar(String jefe, int miembros, String[] nombres){
-        Hogar hogar = new Hogar();
-        hogar.jefe = jefe;
+        // rellenar
+    	Hogar hogar = new Hogar();
+    	hogar.jefe = jefe;
         hogar.miembros = miembros;
-        for (int i = 0;i<nombres.length;i++){
+        for (int i = 0; i < nombres.length; i++) {
         	hogar.nombres[i] = nombres[i];
-        }
+		}
         return hogar;
     }
-    
-    //	obtenerJefe: Hogar -> String
-	//	Recibe un Hogar y retorna el jefe asociado
-    static public String obtenerJefe(Hogar hogar){
-    	return hogar.jefe;
-    }
+
+    // obtenerJefe: Hogar
+    // devuelve el nombre en String[] del jefe de hogar
+	public static String obtenerJefe(Hogar hogar) {
+		// TODO Auto-generated method stub
+		return hogar.jefe;
+	}
 
     // obtenerMiembros: Hogar -> int
-    //	Recibe un Hogar y retorna la cantidad de miembros 
-    static public int obtenerMiembros(Hogar hogar){
-    	return hogar.miembros;
-    }
+	// devuelve la cantidad de miembros del hogar
+	public static int obtenerMiembros(Hogar hogar) {
+		// TODO Auto-generated method stub
+		return hogar.miembros;
+	}
 
-    // obtenerNombres: Hogar -> String[]
-    //	Recibe un Hogar y retorna un arreglo con los miembros (no informa al jefe)
-    static public String[] obtenerNombres(Hogar hogar){
-    	return hogar.nombres;
-    }
-    
-    // modificarJefe: Hogar String -> none
-    // Efecto: Modifica el jefe del hogar en el hogar recibido
-    static public void modificarJefe(Hogar hogar, String jefe){
-    	hogar.jefe=jefe;
-    }
+    // modificarJefe: Hogar, String
+	// efecto: modifica el jefe del hogar recibido
+	public static void modificarJefe(Hogar hogar, String nuevoJefe) {
+		// TODO Auto-generated method stub
+		hogar.jefe = nuevoJefe;
+	}
 
-    // agregarMiembro: Hogar String -> none
-    // Efecto: Si la cantidad de miembros es menor a 15 agrega el nuevo miembro al
-    // arreglo de miembros, luego incrementa la cantidad de miembros en 
-    // la variable miembros
-    static public void agregarMiembro(Hogar hogar, String miembro){
-    	if (hogar.miembros < 15){
-    		hogar.nombres[hogar.miembros-1]=miembro;
-    		hogar.miembros++;
-    	}
-    }
+    // nombresHogar: Hogar
+	// devuelve un String separado por comas con todos los nombres de los miembros, incluido el jefe
+	public static String nombresHogar(Hogar hogar) {
+		// TODO Auto-generated method stub
+		String nombresSalida = hogar.jefe;
+		for (int i = 0; i < hogar.miembros-1; i++) {
+			nombresSalida = nombresSalida+","+hogar.nombres[i];
+		}
+		return nombresSalida;
+	}
 
-    // nombresHogar: Hogar -> String
-    // Devuelve un string con los nombres del jefe y los miembros separados por comas
-    static public String nombresHogar(Hogar hogar){
-    	String miembros = hogar.jefe + ",";
-    	for (int i = 0; i < hogar.miembros-1;i++){
-    		miembros = miembros + hogar.nombres[i] + ","; 
-    	}
-    	return miembros.substring(0, miembros.length()-1);
-    }
+    // agregarMiembro: Hogar, String
+	// efecto: agregar el miembro recibido al hogar recibido
+	public static void agregarMiembro(Hogar hogar, String nuevoMiembro) {
+		// TODO Auto-generated method stub
+		if (hogar.miembros < 15){
+			hogar.nombres[hogar.miembros-1] = nuevoMiembro;
+			hogar.miembros ++;
+		}
+	}
 
+	// obtenerNombres: Hogar -> String[]
+	// devuelve el arreglo de nombres del hogar recibido
+	public static String[] obtenerNombres(Hogar hogar) {
+		// TODO Auto-generated method stub
+		return hogar.nombres;
+	}
 }
 
 public class Ejercicio4{
-        
+    
     static public void main(String[] args){
         // Testing del TDA, no modifique este codigo
         String jefe = "Maria";
@@ -100,3 +100,4 @@ public class Ejercicio4{
         assert Hogar.nombresHogar(hogar2).equals("A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P");
     }
 }
+
