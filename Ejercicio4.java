@@ -14,30 +14,30 @@ class Hogar{
         return hogar;
     }
 
-    // obtenerJefe: Hogar
-    // devuelve un String con el nombre del jefe de hogar recibido por parámetro formal
+    // obtenerJefe: Hogar -> String
+    // devuelve un String con el nombre del jefe de hogar recibido por parametro formal
 	public static String obtenerJefe(Hogar hogar) {
 		// TODO Auto-generated method stub
 		return hogar.jefe;
 	}
 
     // obtenerMiembros: Hogar -> int
-	// devuelve un entero con la cantidad de miembros del hogar recibido por parámetro formal
+	// devuelve un entero con la cantidad de miembros del hogar recibido por parametro formal
 	public static int obtenerMiembros(Hogar hogar) {
 		// TODO Auto-generated method stub
 		return hogar.miembros;
 	}
 
-    // modificarJefe: Hogar, String
-	// efecto: modifica el jefe del hogar recibido por parámetro formal
+    // modificarJefe: Hogar, String -> none
+	// efecto: modifica el jefe del hogar recibido por parametro formal
 	public static void modificarJefe(Hogar hogar, String nuevoJefe) {
 		// TODO Auto-generated method stub
 		hogar.jefe = nuevoJefe;
 	}
 
-    // nombresHogar: Hogar
-	// devuelve un String separado por comas con todos los nombres de los miembros, 
-	// incluido el jefe del hogar, del hogar recibido por parámetro formal
+    // nombresHogar: Hogar -> String
+	/* devuelve un String separado por comas con todos los nombres de los miembros, 
+	 incluido el jefe del hogar, del hogar recibido por parametro formal*/
 	public static String nombresHogar(Hogar hogar) {
 		// TODO Auto-generated method stub
 		String nombresSalida = hogar.jefe;
@@ -47,8 +47,8 @@ class Hogar{
 		return nombresSalida;
 	}
 
-    // agregarMiembro: Hogar, String
-	// efecto: agregar el miembro recibido por parámetro al hogar también recibido por parámetro formal
+    // agregarMiembro: Hogar, String -> none
+	// efecto: agregar el miembro recibido por parametro al hogar tambien recibido por parametro formal
 	public static void agregarMiembro(Hogar hogar, String nuevoMiembro) {
 		// TODO Auto-generated method stub
 		if (hogar.miembros < 15){
@@ -58,7 +58,7 @@ class Hogar{
 	}
 
 	// obtenerNombres: Hogar -> String[]
-	// devuelve el arreglo de nombres del hogar recibido por parámetro formal
+	// devuelve el arreglo de nombres del hogar recibido por parametro formal
 	public static String[] obtenerNombres(Hogar hogar) {
 		// TODO Auto-generated method stub
 		return hogar.nombres;
