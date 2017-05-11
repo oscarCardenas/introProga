@@ -5,45 +5,69 @@ class Hogar{
 
     static public Hogar creaHogar(String jefe, int miembros, String[] nombres){
         // rellenar
-        this.jefe = jefe;
-        this.miembros = miembros;
-        this.nombres = nombres;
-    }
-    
-    // obtenerJefe:
-    public static  String obtenerJefe(){
-        return this.jefe;
+
+    	Hogar hogar = new Hogar();
+    	hogar.jefe = jefe;
+        hogar.miembros = miembros;
+        for (int i = 0; i < nombres.length; i++) {
+        	hogar.nombres[i] = nombres[i];
+		}
+        return hogar;
     }
 
-    // obtenerMiembros:
-    public static  int obtenerMiembros(){
-        return this.miembros;
-    }
+    // obtenerJefe: Hogar -> String
+    // devuelve un String con el nombre del jefe de hogar recibido por parametro formal
+	public static String obtenerJefe(Hogar hogar) {
+		// TODO Auto-generated method stub
+		return hogar.jefe;
+	}
 
-    // obtenerNombres:
-    public static  String[] obtenerNombres(){
-        return this.nombres;
-    }
-    
-    // modificarJefe:
-    public static  void modificarJefe(Hogar hogar, String jefe){
-        hogar.jefe = jefe;        
-    }
+    // obtenerMiembros: Hogar -> int
+	// devuelve un entero con la cantidad de miembros del hogar recibido por parametro formal
+	public static int obtenerMiembros(Hogar hogar) {
+		// TODO Auto-generated method stub
+		return hogar.miembros;
+	}
 
-    // agregarMiembro:
-    public static  void agregarMiembro(Hogar hogar, String nombre){
-        hogar.nombres[];
-        this.miembros++;
-    }
+    // modificarJefe: Hogar, String -> none
+	// efecto: modifica el jefe del hogar recibido por parametro formal
+	public static void modificarJefe(Hogar hogar, String nuevoJefe) {
+		// TODO Auto-generated method stub
+		hogar.jefe = nuevoJefe;
+	}
 
-    // nombresHogar:
-    public static  String nombresHogar(Hogar hogar){
-        return hogar.nombres.toString();
-    }
+    // nombresHogar: Hogar -> String
+	/* devuelve un String separado por comas con todos los nombres de los miembros, 
+	 incluido el jefe del hogar, del hogar recibido por parametro formal*/
+	public static String nombresHogar(Hogar hogar) {
+		// TODO Auto-generated method stub
+		String nombresSalida = hogar.jefe;
+		for (int i = 0; i < hogar.miembros-1; i++) {
+			nombresSalida = nombresSalida+","+hogar.nombres[i];
+		}
+		return nombresSalida;
+	}
+
+    // agregarMiembro: Hogar, String -> none
+	// efecto: agregar el miembro recibido por parametro al hogar tambien recibido por parametro formal
+	public static void agregarMiembro(Hogar hogar, String nuevoMiembro) {
+		// TODO Auto-generated method stub
+		if (hogar.miembros < 15){
+			hogar.nombres[hogar.miembros-1] = nuevoMiembro;
+			hogar.miembros ++;
+		}
+	}
+
+	// obtenerNombres: Hogar -> String[]
+	// devuelve el arreglo de nombres del hogar recibido por parametro formal
+	public static String[] obtenerNombres(Hogar hogar) {
+		// TODO Auto-generated method stub
+		return hogar.nombres;
+	}
 }
 
 public class Ejercicio4{
-        
+    
     static public void main(String[] args){
         // Testing del TDA, no modifique este codigo
         String jefe = "Maria";
