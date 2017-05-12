@@ -99,8 +99,11 @@ public class Ejercicio5{
 		for (int i = 0; i < arr.length; i++) {
 			ColaPrioridad.insertar(cola, arr[i]);
 		}
-		for (int i = 0; i < arr.length; i++) {
+		
+		int i = 0;
+		while (!ColaPrioridad.empty(cola)) {
 			arr[i]=ColaPrioridad.extraerMinimo(cola);
+			i++;
 		}
 	}
     
