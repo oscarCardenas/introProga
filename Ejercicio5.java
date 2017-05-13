@@ -86,16 +86,29 @@ class ColaPrioridad{
 
 public class Ejercicio5{
     
-    // heapsort: 
-    static public void heapsort(int[] array){
+    // heapsort: int[] => None
+    // efecto: ordena de manera ascendente el arreglo enviado como parametro 
+    // ejemplo: heapsort([2, 3, 1]) muta a [1, 2, 3] 
+    static public void heapsort(int[] arreglo){
         ColaPrioridad cola = ColaPrioridad.creaColaPrioridad();
-        for (int i=0; i < array.length ; i++ ) {
-            ColaPrioridad.insertar(cola, array[i]);
+        for (int i=0; i < arreglo.length ; i++ ) {
+            ColaPrioridad.insertar(cola, arreglo[i]);
         }
 
-        for (int i=0; i < array.length ; i++ ) {
-            array[i]=ColaPrioridad.extraerMinimo(cola);
-        }
+        int indice = 0;
+        sort(arreglo, cola, indice);        
+    }
+
+    // sort: int[] ColaPrioridad int => None
+    // efecto: ordena de manera ascendente el arreglo enviado como parametro a partir de una cola de priorirdad
+    // ejemplo: heapsort([2, 3, 1], ColaPrioridad, 0) muta a [1, 2, 3] 
+    static public void sort(int[] arreglo, ColaPrioridad cola, int indice){
+    	if(!ColaPrioridad.empty(cola)) {
+    		int minimo = ColaPrioridad.extraerMinimo(cola);
+    		arreglo[indice] = minimo;
+    		indice++;
+    		sort(arreglo, cola, indice);
+    	}
     }
     
     // Test
@@ -106,7 +119,21 @@ public class Ejercicio5{
         for (int i = 0; i < arr1.length; i = i + 1){
             assert arr1[i] == arr1Ordenado[i];
         }
-        // Agregue los tests adicionales aqui
+        
+        int[] arr2 = {5, 3, 1, 0, -1, 9, 8};
+        int[] arr2Ordenado = {-1, 0, 1, 3, 5, 8, 9};
+        heapsort(arr2);
+        for (int i = 0; i < arr2.length; i = i + 1){
+            assert arr2[i] == arr2Ordenado[i];
+        }
+
+        int[] arr3 = {20, -20, -50, 290, 30, 1, 0};
+        int[] arr3Ordenado = {-50, -20, 0, 1, 20, 30, 290};
+        heapsort(arr3);
+        for (int i = 0; i < arr3.length; i = i + 1){
+            assert arr3[i] == arr3Ordenado[i];
+        }
+
     }
     
     static public void main(String[] args) throws IOException{
